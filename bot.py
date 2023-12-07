@@ -1,7 +1,9 @@
 # This example requires the 'message_content' intent.
 
 import discord
-
+import os
+from dotenv import load_dotenv, find_dotenv
+load_dotenv(find_dotenv())
 intents = discord.Intents.default()
 intents.message_content = True
 
@@ -19,4 +21,4 @@ async def on_message(message):
     if message.content.startswith('$hello'):
         await message.channel.send('Hello!')
 
-client.run('MTEzMjc1Nzg0MDU1NDEwNjkxMA.GXeD5G.Dj_XjQLed48L-dllEpAp1TEMtkIYIHSgLCOjwc')
+client.run(os.getenv('TOKEN'))
